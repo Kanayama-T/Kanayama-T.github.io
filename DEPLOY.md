@@ -25,9 +25,9 @@ GitHub のリポジトリ画面で **Settings → Pages → Build and deployment
 
 現在のサイトを切り替える作業です。GitHub 上のプレビューを確認し、現行 WordPress のバックアップと DNS の現設定を控えた後で実施します。
 
-2026年10月30日に確認した公開 DNS は、`@ A 59.106.19.94`、`@ MX 10 marutomi-t.co.jp.`、`www CNAME marutomi-t.co.jp.` です。`www664.sakura.ne.jp` も `59.106.19.94` に解決し、SPF に記載されています。**現在のMXはドメイン自身を指すため、Aレコードだけを変更するとメールの配送先まで変わります。**
+2026年10月30日に確認した公開 DNS は、`@ A 59.106.19.94`、`@ MX 10 marutomi-t.co.jp.`、`www CNAME marutomi-t.co.jp.` です。さくらの管理画面で確認したサーバー初期ドメインは **`marutomi-t.sakura.ne.jp`** で、これも `59.106.19.94` に解決します。**現在のMXは本番ドメイン自身を指すため、Aレコードだけを変更するとメールの配送先まで変わります。**
 
-1. さくらのサーバーコントロールパネルで、利用中サーバーの初期ドメインが `www664.sakura.ne.jp` であることを確認します。メールもさくらで利用している場合は、DNS の MX を先に `10 www664.sakura.ne.jp.` に変更し、メールの送受信を確認します。末尾の `.` は、さくらの入力形式に合わせてください。
+1. **`marutomi-t.co.jp` のDNSゾーン**で、MX を先に `10 marutomi-t.sakura.ne.jp.` に変更し、メールの送受信を確認します。`marutomi-t.sakura.ne.jp` 自体のDNS画面は変更しません。末尾の `.` は、さくらの入力形式に合わせてください。
 2. GitHub のアカウント Settings → Pages で `marutomi-t.co.jp` を検証します。表示された TXT レコードを DNS に追加し、検証後も残します。
 3. リポジトリの Settings → Pages → Custom domain に `marutomi-t.co.jp` を入力して保存します。
 4. DNS のルート（`@`）の Web 用 A レコードを次の 4 個に変更します。現状は AAAA レコードがありません。後から追加する場合は GitHub Pages の値に合わせます。
