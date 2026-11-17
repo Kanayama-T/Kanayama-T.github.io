@@ -4,7 +4,7 @@ import vm from 'node:vm';
 
 const root = path.resolve(import.meta.dirname, '..');
 const template = fs.readFileSync(path.join(root, 'scripts/template.html'), 'utf8');
-const source = ['privacy-content.js', 'map-url.js', 'site.js'].map(file => fs.readFileSync(path.join(root, file), 'utf8')).join('\n');
+const source = ['privacy-content.js', 'map-url.js', 'site.js', 'redesign.js'].map(file => fs.readFileSync(path.join(root, file), 'utf8')).join('\n');
 const routes = [
   '/', '/事業案内/', '/services/', '/事業案内/service1/', '/事業案内/service2/', '/事業案内/service3/',
   '/company/', '/access/', '/recruit/', '/contact/', '/contact/question/', '/info/', '/contact/info/',
